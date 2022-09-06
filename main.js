@@ -1,11 +1,16 @@
 function getComputerChoice() {
-
+    let computerChoiceNum = Math.floor(Math.random() * 3);
+    
+    
+    console.log(computerChoiceNum);
 } 
 
-function getPlayerSelection() {
+getComputerChoice();
 
-}
+//function getPlayerSelection() {
 
-function playRockPaperScissors(getComputerChoice, getPlayerSelection) {
+//}
 
-}
+//function playRockPaperScissors(getComputerChoice, getPlayerSelection) {
+
+//}
