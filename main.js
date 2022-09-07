@@ -1,5 +1,5 @@
 let computerChoice;
-let playerChoice;
+let playerChoice; 
 function getComputerChoice() {
     switch (Math.floor(Math.random() * 3)) {
         case 0:
@@ -12,20 +12,17 @@ function getComputerChoice() {
             computerChoice = "Scissors";
             break;
     }
-    
-    return(computerChoice.toUpperCase());
+    computerChoice = computerChoice.toUpperCase();
+    return computerChoice;
 } 
 
-getComputerChoice();
-
 function getPlayerSelection() {
-    let playerChoice = window.prompt("What's your choice rock, paper, or scissors?");
-    return (playerChoice.toUpperCase());
+    playerChoice = prompt("What's your choice rock, paper, or scissors?");
+    playerChoice = (playerChoice.toUpperCase());
+    return playerChoice;
 }
 
-getPlayerSelection();
-
-function playRound(getComputerChoice, getPlayerSelection) {
+function playRound() {
     if (computerChoice == playerChoice) {
         console.log("Its a tie!");
     } else if (computerChoice == "ROCK" && playerChoice == "SCISSORS") {
@@ -42,5 +39,6 @@ function playRound(getComputerChoice, getPlayerSelection) {
         console.log("You win! " + playerChoice + " beats " + computerChoice);
     } else {"Something went wrong! " + computerChoice + " " + playerChoice}
 }
-
-playRound();
+getComputerChoice();
+getPlayerSelection();
+playRound(playerChoice, computerChoice);
