@@ -62,14 +62,15 @@ function playRound() {
 }
 
 /* Play 5 rounds of rock, paper, scissors and keeps the score of who wins */
-function game() {
-    for (let i = 0; i < 5; i++) {
-        getComputerChoice();
-        getPlayerSelection();
-        playRound(playerChoice, computerChoice);
+// function game() {
+//     for (let i = 0; i < 5; i++) {
+//         getComputerChoice();
+//         getPlayerSelection();
+//         playRound(playerChoice, computerChoice);
         
-        console.log("Player Wins: " + playerWin + "\n" + "Computer Wins: " + computerWin + "\n" + "Ties: " + ties);
-    }
+//         console.log("Player Wins: " + playerWin + "\n" + "Computer Wins: " + computerWin + "\n" + "Ties: " + ties);
+//     }
+
 /* Declares the winner */
     if (playerWin > computerWin) {
         console.log("Player Wins the Game!");
