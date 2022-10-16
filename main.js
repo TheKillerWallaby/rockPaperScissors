@@ -39,8 +39,6 @@ const paperBtn = document.querySelector('.paper');
 paperBtn.addEventListener('click', () => {
     computerChoice = getComputerChoice();
     playerChoice = "PAPER";
-    console.log(playerChoice);
-    console.log(computerChoice);
     playRound(playerChoice, computerChoice);
 });
     
@@ -49,46 +47,43 @@ const scissorsBtn = document.querySelector('.scissors');
 scissorsBtn.addEventListener('click', () => {
     computerChoice = getComputerChoice();
     playerChoice = "SCISSORS";
-    console.log(playerChoice);
-    console.log(computerChoice);
     playRound(playerChoice, computerChoice);
     
 });
-
-/* Get the player's choice and put in upper case */
-// function playerSelectionRock() {
-//     // playerChoice = prompt("What's your choice rock, paper, or scissors?");
-//     // playerChoice = (playerChoice.toUpperCase());
-//     playerChoice == 'ROCK';
-//     return playerChoice;
-// }
 
 /* Plays a round of rock, paper, scissors and declares the winner */
 function playRound() {
    const playerScoreboard = document.querySelector('.playercount');
    const computerScoreBoard = document.querySelector('.computercount');
+   const gameResult = document.querySelector('.result');
     if (computerChoice == playerChoice) {
-        console.log("Its a tie!");
         ties++;
+        gameResult.textContent = "It's a tie!"
     } else if (computerChoice == "ROCK" && playerChoice == "SCISSORS") {
         computerWin++;
         computerScoreBoard.textContent = computerWin;
+        gameResult.textContent = "The computer chose rock you chose scissors. Computer Wins!";
     } else if (computerChoice == "SCISSORS" && playerChoice == "PAPER") {
         computerWin++;
         computerScoreBoard.textContent = computerWin;
+        gameResult.textContent = "The computer chose scissors you chose paper. Computer Wins!";
     } else if (computerChoice == "PAPER" && playerChoice == "ROCK") {
         computerWin++;
         computerScoreBoard.textContent = computerWin;
+        gameResult.textContent = "The computer chose paper you chose rock. Computer Wins!";
     } else if (computerChoice == "SCISSORS" && playerChoice == "ROCK") {
         playerWin++;
         playerScoreboard.textContent = playerWin;
+        gameResult.textContent = "The computer chose scissors you chose rock. You Win!";
     } else if (computerChoice == "PAPER" && playerChoice == "SCISSORS") {
         playerWin++;
         playerScoreboard.textContent = playerWin;
+        gameResult.textContent = "The computer chose paper you chose scissors. You Win!";
     } else if (computerChoice == "ROCK" && playerChoice == "PAPER") {
         playerWin++;
         playerScoreboard.textContent = playerWin;
-    } else {console.log("Something went wrong! " + computerChoice + " " + playerChoice)
+        gameResult.textContent = "The computer chose rock you chose paper. You Win!";
+    } else { gameResult.textContent = 'Somthing went wrong';
         errors++;
     }
 }
