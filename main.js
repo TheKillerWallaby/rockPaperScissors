@@ -7,6 +7,9 @@ let computerWin = 0;
 let playerWin = 0;
 let ties = 0;
 let errors = 0;
+const playerScoreboard = document.querySelector('.playercount');
+const computerScoreBoard = document.querySelector('.computercount');
+const gameResult = document.querySelector('.result');
 
 /* Function that has the computer randomly choose rock, paper, or scissor. */
 function getComputerChoice() {
@@ -30,8 +33,6 @@ const rockBtn = document.querySelector('.rock');
 rockBtn.addEventListener('click', () => {
     computerChoice = getComputerChoice();
     playerChoice = "ROCK";
-    console.log(playerChoice);
-    console.log(computerChoice);
     playRound(playerChoice, computerChoice);
 });
 
@@ -53,9 +54,7 @@ scissorsBtn.addEventListener('click', () => {
 
 /* Plays a round of rock, paper, scissors and declares the winner */
 function playRound() {
-   const playerScoreboard = document.querySelector('.playercount');
-   const computerScoreBoard = document.querySelector('.computercount');
-   const gameResult = document.querySelector('.result');
+
     if (computerChoice == playerChoice) {
         ties++;
         gameResult.textContent = "It's a tie!"
@@ -86,30 +85,26 @@ function playRound() {
     } else { gameResult.textContent = 'Somthing went wrong';
         errors++;
     }
+
+    if (computerWin == 5) {
+        alert("Computer wins the Game! Game Over!");
+        reset();
+    } else if (playerWin == 5) {
+        alert("You won!");
+        reset();
+    }
+}
+
+function reset() {
+    computerWin = 0;
+    computerScoreBoard.textContent = computerWin;
+    playerWin = 0;
+    playerScoreboard.textContent = playerWin;
+    gameResult.textContent = "Press a button to start the game";
+
 }
 
 
 
 
 
-/* Play 5 rounds of rock, paper, scissors and keeps the score of who wins */
-// function game() {
-//     for (let i = 0; i < 1; i++) {
-//         getComputerChoice();
-//         // getPlayerSelection();
-//         playRound(playerChoice, computerChoice);
-        
-//         console.log("Player Wins: " + playerWin + "\n" + "Computer Wins: " + computerWin + "\n" + "Ties: " + ties);
-//     }
-
-// /* Declares the winner */
-//     if (playerWin > computerWin) {
-//         console.log("Player Wins the Game!");
-//     } else if (computerWin > playerWin) {
-//         console.log("Computer Wins the Game!");
-//     } else { console.log("It's a tie!");
-//     };
-
-
-// }
-//game();
