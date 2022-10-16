@@ -65,32 +65,35 @@ scissorsBtn.addEventListener('click', () => {
 
 /* Plays a round of rock, paper, scissors and declares the winner */
 function playRound() {
-   
+   const playerScoreboard = document.querySelector('.playercount');
+   const computerScoreBoard = document.querySelector('.computercount');
     if (computerChoice == playerChoice) {
         console.log("Its a tie!");
         ties++;
     } else if (computerChoice == "ROCK" && playerChoice == "SCISSORS") {
-        console.log("You lose! " + computerChoice + " beats " + playerChoice);
         computerWin++;
+        computerScoreBoard.textContent = computerWin;
     } else if (computerChoice == "SCISSORS" && playerChoice == "PAPER") {
-        console.log("You lose! " + computerChoice + " beats " + playerChoice);
         computerWin++;
+        computerScoreBoard.textContent = computerWin;
     } else if (computerChoice == "PAPER" && playerChoice == "ROCK") {
-        console.log("You lose! " + computerChoice + " beats " + playerChoice);
         computerWin++;
+        computerScoreBoard.textContent = computerWin;
     } else if (computerChoice == "SCISSORS" && playerChoice == "ROCK") {
-        console.log("You win! " + playerChoice + " beats " + computerChoice);
         playerWin++;
+        playerScoreboard.textContent = playerWin;
     } else if (computerChoice == "PAPER" && playerChoice == "SCISSORS") {
-        console.log("You win! " + playerChoice + " beats " + computerChoice);
         playerWin++;
+        playerScoreboard.textContent = playerWin;
     } else if (computerChoice == "ROCK" && playerChoice == "PAPER") {
-        console.log("You win! " + playerChoice + " beats " + computerChoice);
         playerWin++;
+        playerScoreboard.textContent = playerWin;
     } else {console.log("Something went wrong! " + computerChoice + " " + playerChoice)
         errors++;
     }
 }
+
+
 
 
 
