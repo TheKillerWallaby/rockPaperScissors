@@ -7,6 +7,8 @@ let computerWin = 0;
 let playerWin = 0;
 let ties = 0;
 let errors = 0;
+
+// Declare the selectors in the HTML file
 const playerScoreboard = document.querySelector('.playercount');
 const computerScoreBoard = document.querySelector('.computercount');
 const gameResult = document.querySelector('.result');
@@ -29,6 +31,8 @@ function getComputerChoice() {
     return computerChoice;
 } 
 
+//When one of the three buttons are clicked calls the computerchoice function, states the player's
+//and plays a round
 const rockBtn = document.querySelector('.rock');
 rockBtn.addEventListener('click', () => {
     computerChoice = getComputerChoice();
@@ -43,7 +47,6 @@ paperBtn.addEventListener('click', () => {
     playRound(playerChoice, computerChoice);
 });
     
-
 const scissorsBtn = document.querySelector('.scissors');
 scissorsBtn.addEventListener('click', () => {
     computerChoice = getComputerChoice();
@@ -52,7 +55,7 @@ scissorsBtn.addEventListener('click', () => {
     
 });
 
-/* Plays a round of rock, paper, scissors and declares the winner */
+/*The logic behind who wins based on their choices*/
 function playRound() {
 
     if (computerChoice == playerChoice) {
@@ -86,6 +89,7 @@ function playRound() {
         errors++;
     }
 
+//First one to 5 points wins
     if (computerWin == 5) {
         alert("Computer wins the Game! Game Over!");
         reset();
@@ -94,14 +98,13 @@ function playRound() {
         reset();
     }
 }
-
+//Reset's the game after 5 points is reached.
 function reset() {
     computerWin = 0;
     computerScoreBoard.textContent = computerWin;
     playerWin = 0;
     playerScoreboard.textContent = playerWin;
     gameResult.textContent = "Press a button to start the game";
-
 }
 
 
